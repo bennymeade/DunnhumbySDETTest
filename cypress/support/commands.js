@@ -14,7 +14,7 @@ Cypress.Commands.add('generateYesterdayDate', () => {
     // source: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
 
     var d = new Date();
-    var currentHour = (d.getHours()) // +1 for CET when running in GMT zone
+    var currentHour = (d.getHours()+1) // +1 for CET when running in GMT zone
     cy.log('Current CET hour', currentHour)
 
     if (16 <= currentHour) {
