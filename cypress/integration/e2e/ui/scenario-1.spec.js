@@ -1,3 +1,4 @@
+// @ts-nocheck
 import homePage from '../../pages/home-page.page'
 import productPage from '../../pages/product.page'
 
@@ -19,8 +20,7 @@ describe.only('Scenario 1', () => {
                 .validatePageUrl(`${product}`)
                 .validateProductOptions(`${product}`)
                 .selectProductOption(`${product}`, 1)
-                .clickBuyButton()
-                .validatePageUrl('/cart')
+                .validateBuyButton()
         })
     })
 })

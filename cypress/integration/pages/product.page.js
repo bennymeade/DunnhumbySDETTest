@@ -66,10 +66,16 @@ class Product extends Base {
         return this;
     }
 
-    clickBuyButton() {
-        cy.get('a').contains('Buy for ')
+    validateBuyButton() {
+        cy.get(buyButton)
             .should('be.visible')
             .should('exist')
+            .contains('Buy for')
+    }
+
+    clickBuyButton() {
+        this.validateBuyButton()
+        cy.get(buyButton)
             .focus().click({ force: true })
         return this;
     }

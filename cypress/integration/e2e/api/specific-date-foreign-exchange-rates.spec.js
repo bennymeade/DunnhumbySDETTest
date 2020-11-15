@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 describe('Specific date Foreign Exchange rates', () => {
 
     let dayDate = 27

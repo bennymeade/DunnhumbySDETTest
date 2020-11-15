@@ -1,3 +1,4 @@
+// @ts-nocheck
 // common methods are placed in base page class
 
 export default class Base {

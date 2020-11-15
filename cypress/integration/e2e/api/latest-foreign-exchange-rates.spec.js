@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 describe('Latest Foreign Exchange rates', () => {
 
     beforeEach(() => {
