@@ -27,3 +27,8 @@ Cypress.Commands.add('generateYesterdayDate', () => {
 
     return cy.wrap(datestring);
 })
+
+Cypress.Commands.add('generateEmailAddress', () => {
+    var emailAddress = 'testEmail-' + Math.random().toString(36).substr(2, 16) + '@mail.com';
+    return cy.wrap(emailAddress);
+})
