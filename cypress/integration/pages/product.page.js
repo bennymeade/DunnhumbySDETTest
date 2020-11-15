@@ -75,37 +75,8 @@ class Product extends Base {
     }
 
     clickBuyButton() {
-        // cy.pause()
         this.validateBuyButton()
-        
-        // cy.get(buyButton).debug().click()
-
-        // cy.reload()
-        // cy.get('#buyButton').focus().trigger('keydown', { key: "enter", code: "enter"})
-
-        for (let i = 0; i < 2; i++) {
-            cy.get(buyButton).type('{enter}', { force: true});
-       }
-
-        // cy.get(buyButton).trigger('keydown', { keyCode: 13, which: 13 })
-
-        // cy.get(buyButton).focus().trigger('mousedown').trigger('mouseup')
-        // cy.get(buyButton).focus().trigger('mouseup')
-
-        // cy.get(buyButton).focus()
-
-        // for (var i = 0; i < 100; i++) {
-            // cy.get(buyButton).trigger('keydown')
-            // cy.get(buyButton).trigger('keypress')
-            // cy.get(buyButton).trigger('keyup')
-        //     cy.wait(50)
-        //   }
-          
-
-        // cy.get(buyButton).click({ force: true })
-        // cy.get(buyButton).click({ force: true })
-
-        this.openUrl('/bow-ties/#!/cart') // work around for issue with Buy button not launching cart
+        cy.get(buyButton).focus().click()
         return this;
     }
 }

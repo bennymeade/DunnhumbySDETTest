@@ -9,6 +9,7 @@ class HomePage extends Base {
         cy.get(productName).contains(text)
             .should('be.visible')
             .click()
+        cy.wait(2000)
         return this;
     }
 
