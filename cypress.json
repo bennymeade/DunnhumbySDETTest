@@ -1,5 +1,5 @@
 {
-    "baseUrl": "https://snipcart-react-gatsby.netlify.app/",
+    "baseUrl": "https://snipcart-react-gatsby.netlify.app",
     "rateApiUrl": "https://api.ratesapi.io/api",
     "integrationFolder": "./cypress/integration/e2e/",
     "chromeWebSecurity": false,
