@@ -15,6 +15,7 @@ class BillingAddress extends Base {
         cy.get(cityText).type(city)
         cy.get(postalCodeText).type(code)
         cy.get(emailText).type(email)
+        return this;
     }
 }
 

@@ -1,12 +1,9 @@
 // @ts-nocheck
 import Base from './base.page';
-import chaiColors from 'chai-colors'
-chai.use(chaiColors)
 
 const quantity = 'span.snip-quantity-trigger__text'
 const increaseQuantityButton = 'a.snip-quantity-trigger__btn--add'
 const totalPrice = 'td.snip-table__cell--highlight > span'
-const removeProductButton = 'a.snip-product__remove'
 const nextButton = 'a.js-next'
 const subTotalTitle = 'span.snip-header__total-label'
 const subTotalAmout = '[id="snipcart-amount"]'
@@ -35,13 +32,6 @@ class MyCart extends Base {
         cy.get(totalPrice).should(($el) => {
             expect($el.get(0).innerText).to.contain(amount)
         })
-        return this;
-    }
-
-    validateRemoveButtonColour(colour) {
-        cy.get(removeProductButton)
-            .should('have.css', 'color')
-            .and('be.colored', colour)
         return this;
     }
 
@@ -80,13 +70,6 @@ class MyCart extends Base {
         cy.get(checkoutAsGuestSection)
             .should('exist')
             .should('be.visible')
-        return this;
-    }
-
-    validateCheckoutButtonColour(colour) {
-        cy.get(checkoutButton)
-            .should('have.css', 'background-color')
-            .and('be.colored', colour)
         return this;
     }
 

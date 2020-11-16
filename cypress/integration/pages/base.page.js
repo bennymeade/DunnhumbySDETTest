@@ -1,6 +1,8 @@
 // @ts-nocheck
-// common methods are placed in base page class
+import chaiColors from 'chai-colors'
+chai.use(chaiColors)
 
+// common methods are placed in base page class
 export default class Base {
 
     openUrl(pathUrl) {
@@ -29,6 +31,15 @@ export default class Base {
         return this;
     }
 
+    validateSectionColour(section, selector, colour) {
+        let area = (section == 'Remove button') ? 'color' : 'background-color';
+        
+        cy.get(selector)
+            .should('have.css', area)
+            .and('be.colored', colour)
+        return this;
+    }
+
     // ensuring to complete task: "Verify the current relative URL contains right product name"
     validatePageUrl(url) {
         let hypenedUrl = url.toLowerCase().replace(' ', '-')
@@ -46,8 +57,7 @@ export default class Base {
     }
 
     myCartNextButton() {
-        // cy.get('a.js-next').contains('Next step')
-        cy.get('[id="snipcart-next"]').contains('Next step')
+        cy.get('div.snip-actions').find('a').contains('Next step')
             .should('exist')
             .click()
         return this;
