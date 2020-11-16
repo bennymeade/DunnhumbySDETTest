@@ -9,22 +9,9 @@
 // ***********************************************
 
 
-Cypress.Commands.add('generateYesterdayDate', () => {
-    // The reference rates are usually updated around 16:00 CET
-    // source: https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html
-
+Cypress.Commands.add('generateCurrentDate', () => {
     var d = new Date();
-    var currentHour = (d.getHours()+1) // +1 for CET when running in GMT zone
-    cy.log('Current CET hour', currentHour)
-
-    if (16 <= currentHour) {
-            var datestring = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate(); // generates todays date
-        } else if (16 > currentHour) {
-            var datestring = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + (d.getDate()-1); // generates yesterdays date
-        } else {
-            cy.log('*** Incorrect time format passed')
-        }
-
+    var datestring = d.getFullYear() + "-" + (d.getMonth()+1); // generates current date
     return cy.wrap(datestring);
 })
 

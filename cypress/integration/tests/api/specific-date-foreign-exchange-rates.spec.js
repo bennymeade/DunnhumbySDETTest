@@ -60,6 +60,7 @@ describe('Specific date Foreign Exchange rates', () => {
             expect(response.status).to.eq(200)
             expect(response.body.base).to.eq('BGN')
             expect(response.body.rates.RUB).to.not.be.null
+            expect(response.body.date).to.eq(dateRangeSpecific + `${dayDate - 1}`)
         })
     })
 

@@ -7,7 +7,7 @@ describe('Latest Foreign Exchange rates', () => {
     })
 
     it('with symbols', () => {
-        cy.generateYesterdayDate().then(ratesDate => {
+        cy.generateCurrentDate().then(ratesDate => {
             cy.log('Updated exchange rates date', ratesDate)
 
             cy.request(Cypress.config().rateApiUrl + '/latest?symbols=HUF,GBP,NZD').then((response) => {
@@ -16,7 +16,7 @@ describe('Latest Foreign Exchange rates', () => {
                 expect(response.body.rates.HUF).to.not.be.null
                 expect(response.body.rates.GBP).to.not.be.null
                 expect(response.body.rates.NZD).to.not.be.null
-                expect(response.body.date).to.eq(ratesDate)
+                expect(response.body.date).to.contain(ratesDate)
             })
         })
     })
@@ -53,7 +53,7 @@ describe('Latest Foreign Exchange rates', () => {
     })
 
     it('with symbols and base', () => {
-        cy.generateYesterdayDate().then(ratesDate => {
+        cy.generateCurrentDate().then(ratesDate => {
             cy.request({
                 method: 'GET',
                 url: Cypress.config().rateApiUrl + '/latest?base=USD&symbols=HUF',
@@ -61,7 +61,7 @@ describe('Latest Foreign Exchange rates', () => {
                 expect(response.status).to.eq(200)
                 expect(response.body.base).to.eq('USD')
                 expect(response.body.rates.HUF).to.not.be.null
-                expect(response.body.date).to.eq(ratesDate)
+                expect(response.body.date).to.contain(ratesDate)
             })
         })
     })
