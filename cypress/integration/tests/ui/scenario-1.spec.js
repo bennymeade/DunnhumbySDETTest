@@ -12,11 +12,15 @@ describe('Scenario 1', () => {
                 .openUrl('')
                 .validateH1Title('React & Gatsby shop powered by Snipcart')
                 .clickProductName(`${product}`)
+            // Select any product from the snipcart application
+            // Verify the current relative URL contains right product name
+            // Verify all the dropdown options and Buy for button (include colour and etc)
             productPage
                 .validateH1Title(`${product}`)
                 .validatePageUrl(`${product}`)
                 .validateProductOptions(`${product}`)
                 .selectProductOption(`${product}`, 1)
+                .validateSectionColour('Buy button', '[id="buyButton"]', '#212121')
                 .validateBuyButton()
         })
     })

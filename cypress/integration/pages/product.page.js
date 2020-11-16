@@ -6,28 +6,29 @@ const dryMartiniOptions = '[id="Size"]'
 const fireworksOptions = '[id="Sounds"]'
 const buyButton = '[id="buyButton"]'
 
+let tiesList = ['Blue Red', 'White Blue', 'White Gray']
+let drinksList = ['Classic', 'Large', 'Gatsby-esque']
+let fireworksList = ['Huge BOOM', 'Sparks', 'That long strident sound']
+
 class Product extends Base {
 
     validateProductOptions(product) {
         
             switch(product) {
                 case 'Bow Ties':
-                    cy.get(bowTiesOptions).children('option').then(options => {
-                        const actual = [...options].map(o => o.value)
-                        expect(actual).to.deep.eq(['Blue Red', 'White Blue', 'White Gray'])
-                        })
+                    tiesList.forEach(tie => {
+                        cy.get(bowTiesOptions).each(option => cy.wrap(option).should('contain', tie))
+                    })
                     break;
                 case 'Dry Martini':
-                    cy.get(dryMartiniOptions).children('option').then(options => {
-                        const actual = [...options].map(o => o.value)
-                        expect(actual).to.deep.eq(['Classic', 'Large', 'Gatsby-esque'])
-                        })
+                    drinksList.forEach(drink => {
+                        cy.get(dryMartiniOptions).each(option => cy.wrap(option).should('contain', drink))
+                    })
                     break;
                 case 'Fireworks':
-                    cy.get(fireworksOptions).children('option').then(options => {
-                        const actual = [...options].map(o => o.value)
-                        expect(actual).to.deep.eq(['Huge BOOM', 'Sparks', 'That long strident sound'])
-                        })
+                    fireworksList.forEach(type => {
+                        cy.get(fireworksOptions).each(option => cy.wrap(option).should('contain', type))
+                    })
                     break;
                 default:
                     cy.log('option passed not known')
