@@ -18,6 +18,7 @@ This will run all of the API and UI tests in headless mode, example results can 
 ## Notes on framework design
 
 I've used a JS chaining design to allow an easier way to read the test journey. This framework is also using the page object model (POM).
+As Cypress uses Mocha and Chai natively, these tools are also utilised in this framework.
 
 base.page.js is used for common methods and all other page class extend from base. This allows you to use a base method on any item in the test, example: .validateH1Title()
 

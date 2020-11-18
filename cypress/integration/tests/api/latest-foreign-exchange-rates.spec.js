@@ -8,8 +8,6 @@ describe('Latest Foreign Exchange rates', () => {
 
     it('with symbols', () => {
         cy.generateCurrentDate().then(ratesDate => {
-            cy.log('Updated exchange rates date', ratesDate)
-
             cy.request(Cypress.config().rateApiUrl + '/latest?symbols=HUF,GBP,NZD').then((response) => {
                 expect(response.status).to.eq(200)
                 expect(response.body.base).to.eq('EUR')
