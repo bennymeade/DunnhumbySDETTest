@@ -1,7 +1,7 @@
 # DunnhumbySDETTest
 
 ## Prerequisite
-Clone repo: https://github.com/bennymeade/DunnhumbySDETTest.git
+$ git clone https://github.com/bennymeade/DunnhumbySDETTest.git
 
 $ npm install
 
@@ -13,7 +13,7 @@ This will launch the Cypress Test Runner and individual specs can be run from he
 ## Cypress CI Run via headless browser
 $ npm run test.ci
 
-This will run all of the API and UI tests in headless mode, example results can be seen in ./results folder.
+This will run all of the API and UI tests in Chrome headless mode, example results can be seen in ./results folder.
 
 ## Notes on framework design
 
